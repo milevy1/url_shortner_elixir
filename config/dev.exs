@@ -2,8 +2,6 @@ use Mix.Config
 
 # Configure your database
 config :url_shortner, UrlShortner.Repo,
-  username: "postgres",
-  password: "postgres",
   database: "url_shortner_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
