@@ -7,5 +7,7 @@ defmodule UrlShortnerWeb.Router do
 
   scope "/api", UrlShortnerWeb do
     pipe_through :api
+
+    resources "/urls", URLController, except: [:new, :edit]
   end
 end
