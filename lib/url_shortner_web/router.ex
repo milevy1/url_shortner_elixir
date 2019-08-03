@@ -10,4 +10,8 @@ defmodule UrlShortnerWeb.Router do
 
     resources "/urls", URLController, except: [:new, :edit]
   end
+
+  scope "/", UrlShortnerWeb do
+    get "/:short_url", ShortURLController, :show
+  end
 end

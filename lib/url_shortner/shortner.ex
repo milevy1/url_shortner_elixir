@@ -101,4 +101,8 @@ defmodule UrlShortner.Shortner do
   def change_url(%URL{} = url) do
     URL.changeset(url, %{})
   end
+
+  def get_by_short_url(short_url) do
+    Repo.get_by(URL, short_url: short_url)
+  end
 end
