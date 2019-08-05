@@ -5,6 +5,7 @@ defmodule UrlShortner.Shortner.URL do
   schema "urls" do
     field :long_url, :string
     field :short_url, :string
+    field :access_count, :integer
 
     timestamps()
   end
@@ -12,7 +13,7 @@ defmodule UrlShortner.Shortner.URL do
   @doc false
   def changeset(url, attrs) do
     url
-    |> cast(attrs, [:short_url, :long_url])
+    |> cast(attrs, [:short_url, :long_url, :access_count])
     |> validate_required([:short_url, :long_url])
     |> unique_constraint(:short_url)
     |> unique_constraint(:long_url)
