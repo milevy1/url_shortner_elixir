@@ -73,6 +73,14 @@ defmodule UrlShortner.Shortner do
     |> Repo.update()
   end
 
+  def increment_count(%URL{} = url) do
+    new_count = url.access_count + 1
+
+    url
+    |> Ecto.Changeset.change(%{access_count: new_count})
+    |> Repo.update()
+  end
+
   @doc """
   Deletes a URL.
 

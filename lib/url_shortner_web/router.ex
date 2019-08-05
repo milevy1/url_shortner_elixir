@@ -13,5 +13,6 @@ defmodule UrlShortnerWeb.Router do
 
   scope "/", UrlShortnerWeb do
     get "/:short_url", ShortURLController, :show
+    get "/:short_url/stats", URLController, :stats
   end
 end

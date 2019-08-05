@@ -6,6 +6,12 @@ defmodule UrlShortnerWeb.URLController do
 
   action_fallback UrlShortnerWeb.FallbackController
 
+  def stats(conn, %{"short_url" => short_url}) do
+    url = Shortner.get_by_short_url(short_url)
+
+    render(conn, "show.json", url: url)
+  end
+
   def index(conn, _params) do
     urls = Shortner.list_urls()
     render(conn, "index.json", urls: urls)
